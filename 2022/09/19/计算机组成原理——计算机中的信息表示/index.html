@@ -15,15 +15,15 @@
 
 
 
-<meta name="description" content="介绍数值型数据的进位计数制，带符号数的表示（重点为原码和补码），小数点的表示 （定点数、浮点数、IEEE754）；字符表示方法；指令信息的表示（指令格式、寻址方法、功能分类等）。">
+<meta name="description" content="介绍数值型数据的进位计数制，带符号数的表示（重点为原码和补码），小数点的表示 （定点数、浮点数、IEEE754）">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机组成原理——计算机中的信息表示">
+<meta property="og:title" content="计算机组成原理——数值型数据的表示方法">
 <meta property="og:url" content="http://example.com/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="介绍数值型数据的进位计数制，带符号数的表示（重点为原码和补码），小数点的表示 （定点数、浮点数、IEEE754）；字符表示方法；指令信息的表示（指令格式、寻址方法、功能分类等）。">
+<meta property="og:description" content="介绍数值型数据的进位计数制，带符号数的表示（重点为原码和补码），小数点的表示 （定点数、浮点数、IEEE754）">
 <meta property="og:locale">
 <meta property="article:published_time" content="2022-09-19T01:12:01.000Z">
-<meta property="article:modified_time" content="2022-09-19T15:28:41.634Z">
+<meta property="article:modified_time" content="2022-09-27T02:01:41.230Z">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
 
@@ -59,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>计算机组成原理——计算机中的信息表示 | </title>
+<title>计算机组成原理——数值型数据的表示方法 | </title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -245,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      计算机组成原理——计算机中的信息表示
+      计算机组成原理——数值型数据的表示方法
     </h1>
   
 
@@ -270,24 +270,22 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1>一、数值型数据的表示方法</h1>
-<br>
-<h2 id="进位计数制及其相互转换">进位计数制及其相互转换</h2>
-<h3 id="构成进位计数制的两个基本要素">构成进位计数制的两个基本要素</h3>
+        <h1>一、进位计数制及其相互转换</h1>
+<h2 id="构成进位计数制的两个基本要素">构成进位计数制的两个基本要素</h2>
 <p>基数：每个数位中所允许的最大数码值+1或每个数位中所允许的最多数码个数。<br>
 权：是一个与所在数位相关的常数。<br>
 权与基数的关系：相邻两位的权值之比等于基数值。<br>
 二进制：权是2、基数是0、1<br>
 十进制：权是10、基数是0、1、2、3、4、5、6、7 、8、9<br>
 十六进制：权是16、基数是0、1、2、3、4、5、6、7、8、9、A、B、C、D、E、F</p>
-<h3 id="各种进位计数制的相互表示">各种进位计数制的相互表示</h3>
+<h2 id="各种进位计数制的相互表示">各种进位计数制的相互表示</h2>
 <ol>
 <li>十进制数转换为二进制数：整数部分除以2取余数，所得余数为二进制整数低位的值，继续操作直到商为0为止。小数部分乘以2取整数，所得整数部分为二进制小数高位的值，继续对所余小数操作，直到小数为0(或到达要求精度)为止。</li>
 <li>二进制数转换为十进制数：按权位展开求和。</li>
 <li>八进制、十六进制与二进制数的转换：从小数点起每三位（四位）一组，整数部分不够三位（四位）时在前面添0，小数部分不够三位（四位）时在后面添0。转二进制就反过来操作。</li>
 <li>十进制数与八进制数、十六进制数间的转换：和前两条道理相同，略。</li>
 </ol>
-<h3 id="带符号数的表示">带符号数的表示</h3>
+<h1>二、带符号数的表示</h1>
 <ol>
 <li>
 <p>真值：正、负符号加绝对值表示数值。</p>
@@ -297,18 +295,18 @@
 </li>
 <li>
 <p>原码：又称“符号－数值表示”，在以原码表示的正负数中，第一位为0(正数)；为1(负数)。<br>
-若 X = -1011，则五位字长的 X <sub>原</sub> = 11011，而八位字长的 X <sub>原</sub> = 10001011。</p>
+若 X = -1011，则五位字长的 $X_原$ = 11011，而八位字长的 $X_原$ = 10001011。</p>
 <p>(1) 在原码表示中，真值 0 可以有两种不同的表示形式，可分别称为+0 与-0。<br>
-[+0]<sub>原</sub> = 0.00…0，[-0]<sub>原</sub> = 1.00…0 。它们的真值含义相同。</p>
-<p>(2) 对于小数原码，表示范围：-1&lt;X&lt;1；对于整数原码 XnXn-1…X0，表示范围：-2<sup>n</sup>&lt;X&lt;2<sup>n</sup>。</p>
+[+$X_原$] = 0.00…0，[-$X_原$] = 1.00…0 。它们的真值含义相同。</p>
+<p>(2) 对于小数原码，表示范围：$-1&lt;X&lt;1$；对于整数原码 $X_n X_{n-1} …X_0$，表示范围：$-2^n &lt; X&lt;2^n$。</p>
 <p>(3) 符号位不是数值的一部分，是人为地约定“0正1负”。所以在原码运算中需将符号位与有效数值部分分开处理，也就是取数的绝对值进行运算（又称为无符号数运算），而符号位单独处理。</p>
 </li>
 <li>
 <p>补码：如果数为正，则正数的补码与原码表示形式相同；如果数为负，则将负数的原码<strong>除符号位外</strong>，其余各位取反后末尾再加1。<br>
-(1) X<sub>补</sub> = M + X (mod M) 19<sup>t</sup><br>
-式中，模为M，X是真值；X<sub>补</sub>是数X的补码。若X≥0，模M可作为溢出量舍去，如同在时钟一例中舍去模12一样，则X<sub>补</sub>=X。若X＜0，则X<sub>补</sub>=M+X =M-|X|。</p>
-<p>(2) 定点小数的补码定义式：若定点小数的补码序列为 X0.X1X2…Xn，其溢出量为 2<sup>1</sup>（注意：符号位 X0的权值是 2<sup>0</sup>），因此以2为模。</p>
-<p>(3) 定点整数的补码定义式：若定点整数的补码序列为 XnXn-1…X1X0，即连同符号位有n+1位，其溢出量为2n+1（注意：符号位 Xn的权值是2<sup>n</sup>），因此以2<sup>n+1</sup>为模。</p>
+(1) $X_补 = M + X (mod M)$<br>
+式中，模为M，X是真值；$X_补$是数X的补码。若$X≥0$，模M可作为溢出量舍去，如同在时钟一例中舍去模12一样，则$X_补$=X。若X＜0，则$X_补=M+X =M-|X|$。</p>
+<p>(2) 定点小数的补码定义式：若定点小数的补码序列为 $ X_0.X_1X_2…X_n $，其溢出量为 $2^1$（注意：符号位 $X_0$的权值是 $2^0$），因此以2为模。</p>
+<p>(3) 定点整数的补码定义式：若定点整数的补码序列为 $X_n X_{n-1} …X_0$，即连同符号位有n+1位，其溢出量为$2^{n+1} $（注意：符号位 $X_n$的权值是$2^n$），因此以 $2^{n+1}$为模。</p>
 </li>
 <li>
 <p>定点表示法：在计算机中，小数点位置固定不变的数称为定点数。表示数的范围和分辨率固定不变。<br>
@@ -318,14 +316,16 @@ c.带符号定点小数：是纯小数，用原码或补码表示。</p>
 </li>
 <li>
 <p>浮点表示法：<br>
-(1) 浮点数的格式：N = ± R<sup>E</sup> ×M<br>
-式中N为真值， RE为比例因子，M是尾数。对于某种浮点格式，R固定不变且隐含约定，因此浮点数代码序列中只需分别给出E和M两部分（连同它们的符号）。</p>
-<p>(2) 移码：若阶码（连同一位阶符）共 m+1 位，代码序列为 XmXm-1…X1X0<br>
-则X<sub>移</sub>=2<sup>m</sup>+X （-2<sup>m</sup>≤X＜2<sup>m</sup>）<br>
-式中X是阶码的真值，2<sup>m</sup>是符号位 X<sub>移</sub> 的位权。因此X<sub>移</sub>相当于将真值X沿数轴正向平移2<sup>m</sup>，<br>
-所以称为移码。或者说将X增加2<sup>m</sup>，所以又取名为增码。</p>
+(1) 浮点数的格式：$N = ± R^E ×M$<br>
+式中N为真值， $R^E$为比例因子，M是尾数。对于某种浮点格式，R固定不变且隐含约定，因此浮点数代码序列中只需分别给出E和M两部分（连同它们的符号）。</p>
+<p>(2) 移码：若阶码（连同一位阶符）共 m+1 位，代码序列为 $X_m X_{m-1} …X_0$<br>
+则$X_移=2^m+X （-2^m &lt; X&lt;2^m）$<br>
+式中X是阶码的真值，$2^m$是符号位 $X_移$ 的位权。因此$X_移$相当于将真值X沿数轴正向平移$2^m$，<br>
+所以称为移码。或者说将X增加$2^m$，所以又取名为增码。</p>
 </li>
 </ol>
+<h1>三、IEEE754标准浮点格式</h1>
+<p>略，看书，很重要</p>
 
       
     </div>
@@ -334,12 +334,12 @@ c.带符号定点小数：是纯小数，用原码或补码表示。</p>
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/">计算机组成原理——计算机中的信息表示</a></p>
+        <p><span>本文标题:</span><a href="/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/">计算机组成原理——数值型数据的表示方法</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">MrKong</a></p>
         <p><span>发布时间:</span>2022-09-19, 09:12:01</p>
-        <p><span>最后更新:</span>2022-09-19, 23:28:41</p>
+        <p><span>最后更新:</span>2022-09-27, 10:01:41</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/" title="计算机组成原理——计算机中的信息表示">http://example.com/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/</a>
+            <span>原始链接:</span><a class="post-url" href="/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/" title="计算机组成原理——数值型数据的表示方法">http://example.com/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/</a>
             <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/　　作者: MrKong" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
@@ -367,7 +367,7 @@ c.带符号定点小数：是纯小数，用原码或补码表示。</p>
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">一、数值型数据的表示方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%9B%E4%BD%8D%E8%AE%A1%E6%95%B0%E5%88%B6%E5%8F%8A%E5%85%B6%E7%9B%B8%E4%BA%92%E8%BD%AC%E6%8D%A2"><span class="toc-number">1.1.</span> <span class="toc-text">进位计数制及其相互转换</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%9E%84%E6%88%90%E8%BF%9B%E4%BD%8D%E8%AE%A1%E6%95%B0%E5%88%B6%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%A6%81%E7%B4%A0"><span class="toc-number">1.1.1.</span> <span class="toc-text">构成进位计数制的两个基本要素</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E8%BF%9B%E4%BD%8D%E8%AE%A1%E6%95%B0%E5%88%B6%E7%9A%84%E7%9B%B8%E4%BA%92%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.2.</span> <span class="toc-text">各种进位计数制的相互表示</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B8%A6%E7%AC%A6%E5%8F%B7%E6%95%B0%E7%9A%84%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.1.3.</span> <span class="toc-text">带符号数的表示</span></a></li></ol></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">一、进位计数制及其相互转换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%9E%84%E6%88%90%E8%BF%9B%E4%BD%8D%E8%AE%A1%E6%95%B0%E5%88%B6%E7%9A%84%E4%B8%A4%E4%B8%AA%E5%9F%BA%E6%9C%AC%E8%A6%81%E7%B4%A0"><span class="toc-number">1.1.</span> <span class="toc-text">构成进位计数制的两个基本要素</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%90%84%E7%A7%8D%E8%BF%9B%E4%BD%8D%E8%AE%A1%E6%95%B0%E5%88%B6%E7%9A%84%E7%9B%B8%E4%BA%92%E8%A1%A8%E7%A4%BA"><span class="toc-number">1.2.</span> <span class="toc-text">各种进位计数制的相互表示</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">二、带符号数的表示</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">三、IEEE754标准浮点格式</span></a></li></ol>
         
     </div>
     <style>
@@ -403,7 +403,7 @@ c.带符号定点小数：是纯小数，用原码或补码表示。</p>
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"计算机组成原理——计算机中的信息表示　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"计算机组成原理——数值型数据的表示方法　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -435,7 +435,7 @@ c.带符号定点小数：是纯小数，用原码或补码表示。</p>
         
     </div>
 
-    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/">计算机组成原理——计算机中的信息表示</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/12/Java%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/">Java常用语法汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/">计算机组成原理——概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/09/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/">Markdown基本语法与hexo常用命令</a></li></ul>
+    <ul class="post-list"><li class="post-list-item"><a class="post-list-link" href="/2022/09/19/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E8%AE%A1%E7%AE%97%E6%9C%BA%E4%B8%AD%E7%9A%84%E4%BF%A1%E6%81%AF%E8%A1%A8%E7%A4%BA/">计算机组成原理——数值型数据的表示方法</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/12/Java%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/">Java常用语法汇总</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/">计算机组成原理——概论</a></li><li class="post-list-item"><a class="post-list-link" href="/2022/09/09/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/">Markdown基本语法与hexo常用命令</a></li></ul>
 
 
 
