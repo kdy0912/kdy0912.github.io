@@ -15,15 +15,15 @@
 
 
 
-<meta name="description" content="介绍计算机的基本概念，系统硬件的组成以及计算机的性能指标。">
+<meta name="description" content="习题巩固，查缺补漏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机组成原理——概论">
-<meta property="og:url" content="http://example.com/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/index.html">
+<meta property="og:title" content="计组期中复习">
+<meta property="og:url" content="http://example.com/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="介绍计算机的基本概念，系统硬件的组成以及计算机的性能指标。">
+<meta property="og:description" content="习题巩固，查缺补漏">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-09-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-05T08:08:00.568Z">
+<meta property="article:published_time" content="2022-11-06T08:44:39.000Z">
+<meta property="article:modified_time" content="2022-11-07T13:32:34.268Z">
 <meta property="article:tag" content="计算机组成原理">
 <meta name="twitter:card" content="summary">
 
@@ -59,7 +59,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>计算机组成原理——概论 | </title>
+<title>计组期中复习 | </title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -226,11 +226,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-计算机组成原理——概论" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-计组期中复习" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/" class="article-date">
-      <time datetime="2022-09-09T16:00:00.000Z" itemprop="datePublished">2022-09-10</time>
+      <a href="/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" class="article-date">
+      <time datetime="2022-11-06T08:44:39.000Z" itemprop="datePublished">2022-11-06</time>
 </a>
 
 
@@ -245,7 +245,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      计算机组成原理——概论
+      计组期中复习
     </h1>
   
 
@@ -270,49 +270,127 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1>计算机系统的基本组成与特点</h1>
-<br>
+        <h1>数值信息的表示方法</h1>
 <ol>
-<li>计算机的五大组成部分：运算器、控制器、存储器、输入设备、输出设备（包括总线、接口）</li>
-<li>计算机内部的两大流：控制流、数据流</li>
-<li>冯·诺依曼体制：采用二进制表示数据和指令、<strong>采用存储程序方式工作</strong>（核心）、由五大部分组成计算机系统的硬件，并规定了这五部分的基本功能</li>
+<li>
+<p>原码：符号位为0正1负+二进制数</p>
+<p>原码，反码，补码的正数相同</p>
+<p>负数反码：符号位+二进制数按位取反</p>
+<p>负数补码：符号位+二进制数按位取反加1</p>
+<p>移码为补码符号位取反</p>
+</li>
+<li>
+<p>补码和移码都是平移得到的，但是前者是2的n+1次方，后者是2的n次方（字长为n+1位）</p>
+</li>
+<li>
+<p>短浮点数：31（数符） | 30 - 23 （<strong>8位阶码，加127</strong>）|22 - 0（尾数，原码表示，省略开头的1）|</p>
+</li>
+<li>
+<p>长浮点数：63（数符） | 62 - 52 （<strong>11位阶码，加1023</strong>）|51 - 0（尾数，原码表示，省略开头的1）|</p>
+</li>
 </ol>
-<br>
-<h1>计算机系统的硬件组成</h1>
-<br>
-<h2 id="主要组成部件">主要组成部件</h2>
+<h1>指令系统</h1>
 <ol>
-<li>存储器</li>
-<li>CPU：由运算器、控制器组成，控制器产生控制命令(微命令)，控制全机操作</li>
-<li>输入/输出设备，功能为转换信息</li>
+<li>
+<p>1K = 2的10次方，1M = 2的20次方，8位(bit) = 1字节(byte)</p>
+</li>
+<li>
+<p>一地址指令：<strong>隐含约定目的地的双操作数指令</strong>或者目的操作数的单操作数指令。</p>
+</li>
+<li>
+<p>零地址指令可以是双操作数指令。</p>
+</li>
+<li>
+<p>减少指令中<strong>地址数</strong>的方法是采用隐地址，寄存器间接寻址的优点：执行速度快，减少指令中<strong>地址字段的位数</strong></p>
+</li>
+<li>
+<p>独立编址与统一编址</p>
+<p>独立编址：<strong>将外设的寄存器看成一个独立的地址空间。<strong>I/O地址与存储地（内存）址分开独立编址，I/O端口地址不占用存储空间的地址范围。这样，在系统中就存在了另一种与存储地址无关的I/O地址。此时，需要使用</strong>专用的CPU指令</strong>来访问某种特定外设。</p>
+<p>统一编址：**寄存器参与内存统一编址。**外设接口中的I/O寄存器(即I/O端口)与主存（内存）单元一样看待，每个端口占用一个存储单元的地址（总线地址），将主存的一部分划分出来用作I/O的地址空间。（理解：把外设的寄存器当做是一个内存地址，从而以类似访问内存相同的方式来操作外设）。</p>
+<p>区别：独立编址与统一编址的区别：独立编址访问外设有专门的I/O指令（比如：x86的in/out等指令），也就是独立编址会存在I/O空间的概念。而统一编址对外设的访问和都内存的访问指令可以是一样的，这类指令又被成为隐式I/O指令。</p>
+</li>
+<li>
+<p>为了实现输入输出操作,指令中<strong>对单独编址方式,可以指明端口地址；对统一编址方式,可以指明寄存器的总线地址</strong>。</p>
+</li>
+<li>
+<p>采用隐式I/O指令，是指用<strong>传送指令</strong>实现I/O操作。</p>
+</li>
+<li>
+<p>若主存储器和外设独立编址，则CPU根据地址码区分访问的是存储器还是I/O接口。( × )</p>
+</li>
 </ol>
-<h2 id="硬件系统结构">硬件系统结构</h2>
+<h1>CPU子系统</h1>
 <ol>
-<li>以总线为基础的系统结构</li>
-<li>采用通道或IOP的大型系统结构</li>
-<li>模型机系统结构</li>
-<li>接口</li>
-</ol>
-<br>
-<h1>计算机系统的性能指标</h1>
-<br>
-<h2 id="基本字长">基本字长</h2>
-<p>一般是指参加一次定点运算的操作数的位数。如：8、16、32、64位，它影响计算精度、指令功能。</p>
-<h2 id="运算速度">运算速度</h2>
-<ol>
-<li>CPU主频：是计算机的振荡器输出的脉冲序列的频率，是计算机中一切操作所依据的时间基准信号，其高低决定了计算机工做速度的快慢。</li>
-<li>时钟频率：是主频脉冲经分频后所形成的时钟脉冲序列的频率，两个相邻时钟脉冲之间的间隔时间是一个时钟周期时间，也称为节拍。</li>
-</ol>
-<h2 id="数据通路宽度与数据传输率">数据通路宽度与数据传输率</h2>
-<ol>
-<li>数据通路宽度：指数据总线一次能并行传送的数据位数</li>
-<li>数据传输率：指数据总线每秒传送的数据量，也称为数据总线的带宽</li>
-<li>公式：总线带宽 = 总线数据通路宽度 × 总线时钟频率 ÷ 8 （BPS）</li>
-</ol>
-<h2 id="存储容量">存储容量</h2>
-<ol>
-<li>主存容量：存储单元个数 × 位数，表示为：字数×字长（按字编址）或字节数（按字节编址）</li>
-<li>外存容量：表示为字节数，与地址码位数无关</li>
+<li>
+<p>控制信号的产生方式：组合逻辑控制方式与微程序控制</p>
+<p><strong>组合逻辑控制方式</strong></p>
+<p>用<strong>组合逻辑电路</strong>形成逻辑或由<strong>微命令发生器</strong>发出所需微命令</p>
+<p>优点：<strong>产生微命令快</strong>，执行效率高</p>
+<p>缺点：设计不规整，设计效率低，不易修改。</p>
+<p>应用：高速、小规模计算机</p>
+<p><strong>微程序控制</strong></p>
+<p>若干微命令→一条微指令</p>
+<p>微命令：构成控制信号序列的最小单位，又称微信号，指那些<strong>直接作用于部件或控制门电路</strong>的命令。</p>
+<p>若干微指令→一段微程序→一条机器指令</p>
+<p>微程序控制：将控制器所需的微命令，以代码（微码）形式编成微指令，把微程序存入一个ROM构成的<strong>控制存储器</strong>（在CPU）中。</p>
+<p>优点：设计效率高，易修改</p>
+<p>缺点：<strong>速度慢</strong>，执行效率低</p>
+<p>应用：速度不高，功能复杂的机器（系列机）</p>
+</li>
+<li>
+<p>时序控制系统：</p>
+<p>同步控制：不存在控制信号的交互，时序关系简单，划分规整（如将时序信号划分为<strong>工作周期、时钟周期（节拍）、脉冲</strong>等三级时序），控制不复杂，控制部件在结构上易于集中、设计方便，缺点是在时间的安排上可能不合理、利用不经济。</p>
+<p>异步控制：无固定周期，数据传输采用异步应答，存在信息交互，时间紧凑合理，缺点是控制起来比较复杂。CPU内部或设备内部很少采用异步控制方式。</p>
+<p>拓展同步控制：根据实际时间分配时钟周期数，时钟周期长度不变。</p>
+</li>
+<li>
+<p>汇编语言程序员可见的寄存器：PC,SP</p>
+</li>
+<li>
+<p>加法器运算速度与<strong>全加器</strong>与<strong>进位传递速度</strong>都有关系</p>
+</li>
+<li>
+<p>并行加法器的进位链都是并行进位链。 （×）</p>
+</li>
+<li>
+<p>采用分组进位的并行加法器，则组内与组间进位都是并行的。  （×）</p>
+</li>
+<li>
+<p>为了读写存储单元，必须要地址使能信号EMAR有效。  （√）</p>
+</li>
+<li>
+<p>例题：</p>
+<p>某CPU组成：用SN74181构成的ALU一片，选择器A、B，移位器；通用寄存器R0～R3，暂存器C、D；指令寄存器IR，程序计数器PC，程序状态字寄存器PSW，堆栈指针SP；地址寄存器MAR，数据缓冲寄存器MDR；CPU内单向数据总线一组；控制器等部件。</p>
+<p>问题：</p>
+<p>1、画出一种CPU数据通路框图(寄存器级)。</p>
+<p>2、请补充完善加法指令ADD (R2)+，X(R1)中的指令流程步骤（采用寄存器传送级语句，如R1→R0）并在下列空白处填上适当内容；</p>
+<p>FT:  M→IR ，PC+1→PC</p>
+<p>ST:  PC→MAR</p>
+<p>​    M→MDR→C      (1)C中存放的信息是：</p>
+<p>​    PC+1→PC</p>
+<p>​    C+R1→MAR</p>
+<p>​    M→MDR→C      (2)C中存放的信息是：</p>
+<p>DT:  (3)</p>
+<p>​     (4)</p>
+<p>​     (5)</p>
+<p>ET:  C+D-&gt;MDR</p>
+<p>​     MDR-&gt;M</p>
+<p>PC-&gt;MAR</p>
+<p>（6）考虑整体优化，在源周期ST中，第2、3节拍的顺序是否可以交换？并说明原因。</p>
+<p>(7)  ET周期的前两步能否安排在一个节拍？为什么？</p>
+<p>3、请安排ET周期中第一个节拍C+D→MDR的微命令序列（不考虑时序切换）。</p>
+<p>1、略</p>
+<p>2、</p>
+<p>(1)C中存放的信息是：形式地址 （或位移量）</p>
+<p>​    (2)C中存放的信息是： 源操作数</p>
+<p>​    (3)  R2-&gt; MAR</p>
+<p>​    (4)  M-&gt;MDR-&gt;D</p>
+<p>​    (5)  R2+1-&gt;R2</p>
+<p>​    <strong>(6) 不能。从简化整体设计角度，应该尽量使不同寻址方式下<em>ST1的操作相同</em>。</strong></p>
+<p>​    <strong>(7) 不能。因为运算结果经内总线到MDR采用<em>同步打入</em>方式，需要一个时钟周期，从MDR到M需要另外一个时钟周期。</strong></p>
+<p>3、</p>
+<p>答：C→A,D→B,A+B, DM, CPMDR</p>
+</li>
 </ol>
 
       
@@ -322,13 +400,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/">计算机组成原理——概论</a></p>
+        <p><span>本文标题:</span><a href="/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">计组期中复习</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">MrKong</a></p>
-        <p><span>发布时间:</span>2022-09-10, 00:00:00</p>
-        <p><span>最后更新:</span>2022-10-05, 16:08:00</p>
+        <p><span>发布时间:</span>2022-11-06, 16:44:39</p>
+        <p><span>最后更新:</span>2022-11-07, 21:32:34</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/" title="计算机组成原理——概论">http://example.com/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/　　作者: MrKong" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" title="计组期中复习">http://example.com/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/　　作者: MrKong" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -340,16 +418,10 @@
 
     <nav id="article-nav">
         
-            <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2022/09/12/Java%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/">
-                    Java常用语法汇总（一）
-                </a>
-            </div>
-        
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2022/09/09/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/">
-                    Markdown基本语法与hexo常用命令
+                <a href="/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/">
+                    Java常用语法汇总（二）
                 </a>
             </div>
         
@@ -361,7 +433,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">计算机系统的基本组成与特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">计算机系统的硬件组成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E9%83%A8%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">主要组成部件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.</span> <span class="toc-text">硬件系统结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">计算机系统的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AD%97%E9%95%BF"><span class="toc-number">3.1.</span> <span class="toc-text">基本字长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E9%80%9F%E5%BA%A6"><span class="toc-number">3.2.</span> <span class="toc-text">运算速度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E5%AE%BD%E5%BA%A6%E4%B8%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E7%8E%87"><span class="toc-number">3.3.</span> <span class="toc-text">数据通路宽度与数据传输率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%AE%B9%E9%87%8F"><span class="toc-number">3.4.</span> <span class="toc-text">存储容量</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">数值信息的表示方法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">指令系统</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">CPU子系统</span></a></li></ol>
         
     </div>
     <style>
@@ -397,7 +469,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"计算机组成原理——概论　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"计组期中复习　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -417,15 +489,13 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2022/09/12/Java%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/" title="上一篇: Java常用语法汇总（一）">
-                <i class="fa fa-angle-left"></i>
-            </a>
+            <a href="/" title="回到主页"><i class="fa fa-home"></i></a>
         
 
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2022/09/09/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/" title="下一篇: Markdown基本语法与hexo常用命令">
+            <a href="/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/" title="下一篇: Java常用语法汇总（二）">
                 <i class="fa fa-angle-right"></i>
             </a>
         

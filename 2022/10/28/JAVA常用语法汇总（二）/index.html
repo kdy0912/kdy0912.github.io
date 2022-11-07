@@ -15,17 +15,21 @@
 
 
 
-<meta name="description" content="介绍计算机的基本概念，系统硬件的组成以及计算机的性能指标。">
+<meta name="description" content="介绍Java中和集合有关的方法">
 <meta property="og:type" content="article">
-<meta property="og:title" content="计算机组成原理——概论">
-<meta property="og:url" content="http://example.com/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/index.html">
+<meta property="og:title" content="Java常用语法汇总（二）">
+<meta property="og:url" content="http://example.com/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/index.html">
 <meta property="og:site_name">
-<meta property="og:description" content="介绍计算机的基本概念，系统硬件的组成以及计算机的性能指标。">
+<meta property="og:description" content="介绍Java中和集合有关的方法">
 <meta property="og:locale">
-<meta property="article:published_time" content="2022-09-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2022-10-05T08:08:00.568Z">
-<meta property="article:tag" content="计算机组成原理">
+<meta property="og:image" content="https://s2.loli.net/2022/10/28/wfZ5a9T2Hzu6NQq.jpg">
+<meta property="og:image" content="https://s2.loli.net/2022/10/28/bvhLcXGpo4NqiI6.jpg">
+<meta property="article:published_time" content="2022-10-28T01:59:12.000Z">
+<meta property="article:modified_time" content="2022-10-28T03:33:39.207Z">
+<meta property="article:tag" content="Java">
+<meta property="article:tag" content="数据结构与算法">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://s2.loli.net/2022/10/28/wfZ5a9T2Hzu6NQq.jpg">
 
 <link rel="apple-touch-icon" href= "/apple-touch-icon.png">
 
@@ -59,7 +63,7 @@
 <link href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css" rel="stylesheet">
 
 
-<title>计算机组成原理——概论 | </title>
+<title>Java常用语法汇总（二） | </title>
 
 <script src="//cdn.bootcss.com/jquery/2.2.4/jquery.min.js"></script>
 <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
@@ -226,11 +230,11 @@
     </div>
     <link class="menu-list" tags="标签" friends="友情链接" about="关于我"/>
 </nav>
-      <div class="body-wrap"><article id="post-计算机组成原理——概论" class="article article-type-post" itemscope itemprop="blogPost">
+      <div class="body-wrap"><article id="post-JAVA常用语法汇总（二）" class="article article-type-post" itemscope itemprop="blogPost">
   
     <div class="article-meta">
-      <a href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/" class="article-date">
-      <time datetime="2022-09-09T16:00:00.000Z" itemprop="datePublished">2022-09-10</time>
+      <a href="/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/" class="article-date">
+      <time datetime="2022-10-28T01:59:12.000Z" itemprop="datePublished">2022-10-28</time>
 </a>
 
 
@@ -245,7 +249,7 @@
         
   
     <h1 class="article-title" itemprop="name">
-      计算机组成原理——概论
+      Java常用语法汇总（二）
     </h1>
   
 
@@ -260,7 +264,7 @@
 
         
     <div class="article-tag tagcloud">
-        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86/" rel="tag">计算机组成原理</a></li></ul>
+        <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Java/" rel="tag">Java</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95/" rel="tag">数据结构与算法</a></li></ul>
     </div>
 
         <div class="clearfix"></div>
@@ -270,49 +274,108 @@
     <div class="article-entry" itemprop="articleBody">
       
           
-        <h1>计算机系统的基本组成与特点</h1>
-<br>
+        <h1>概述</h1>
 <ol>
-<li>计算机的五大组成部分：运算器、控制器、存储器、输入设备、输出设备（包括总线、接口）</li>
-<li>计算机内部的两大流：控制流、数据流</li>
-<li>冯·诺依曼体制：采用二进制表示数据和指令、<strong>采用存储程序方式工作</strong>（核心）、由五大部分组成计算机系统的硬件，并规定了这五部分的基本功能</li>
+<li>
+<p>List , Set, Map都是接口，前两个继承至Collection接口，Map为独立接口</p>
+</li>
+<li>
+<p>Set下有HashSet，LinkedHashSet，TreeSet</p>
+</li>
+<li>
+<p>List下有ArrayList，Vector，LinkedList</p>
+</li>
+<li>
+<p>Map下有Hashtable，LinkedHashMap，HashMap，TreeMap</p>
+</li>
+<li>
+<p>Collection接口下还有个Queue接口，有PriorityQueue类</p>
+</li>
 </ol>
-<br>
-<h1>计算机系统的硬件组成</h1>
-<br>
-<h2 id="主要组成部件">主要组成部件</h2>
+<p><img src="https://s2.loli.net/2022/10/28/wfZ5a9T2Hzu6NQq.jpg" alt="集合.jpg"></p>
+<p><img src="https://s2.loli.net/2022/10/28/bvhLcXGpo4NqiI6.jpg" alt="Map.jpg"></p>
+<h1>Collection接口</h1>
+<h2 id="Collection集合中常用方法">Collection集合中常用方法</h2>
 <ol>
-<li>存储器</li>
-<li>CPU：由运算器、控制器组成，控制器产生控制命令(微命令)，控制全机操作</li>
-<li>输入/输出设备，功能为转换信息</li>
+<li><code>boolean add(E e)</code>：集合末尾添加元素</li>
+<li><code>boolean remove(Object o)</code>：从此集合中移除指定元素，如果存在的话则返回true</li>
+<li><code>void clear()</code>：移除此集合中的所有元素</li>
+<li><code>int size()</code>：返回此集合中的元素个数</li>
+<li><code>boolean isEmpty()</code>：如果此集合不包含元素，则返回 true</li>
+<li><code>Object[] toArray()</code>：返回包含此集合中所有元素的数组</li>
+<li><code>boolean contains(Object o)</code>：如果此集合包含指定的元素，则返回 true</li>
+<li><code>Iterator&lt;E&gt; iterator()</code>：返回在此集合的元素上进行迭代的迭代器</li>
 </ol>
-<h2 id="硬件系统结构">硬件系统结构</h2>
+<h2 id="List集合的特有方法">List集合的特有方法</h2>
 <ol>
-<li>以总线为基础的系统结构</li>
-<li>采用通道或IOP的大型系统结构</li>
-<li>模型机系统结构</li>
-<li>接口</li>
+<li><code>void add(int index, E element)</code>：在指定位置添加元素</li>
+<li><code>E remove(int index)</code>：在指定位置删除元素</li>
+<li><code>int indexOf(Object o)</code>：返回指定元素第一次出现的索引（同理还有LastIndexOf）</li>
+<li><code>E get(int index)</code>：获取指定位置的元素</li>
+<li><code>E set(int index,E element)</code>：替换指定位置的元素</li>
+<li><code>List&lt;E&gt; subList(int fromIndex, int toIndex)</code>：截取集合</li>
+<li><code>ListIterator&lt;E&gt; listIterator()</code>：集合迭代器</li>
 </ol>
-<br>
-<h1>计算机系统的性能指标</h1>
-<br>
-<h2 id="基本字长">基本字长</h2>
-<p>一般是指参加一次定点运算的操作数的位数。如：8、16、32、64位，它影响计算精度、指令功能。</p>
-<h2 id="运算速度">运算速度</h2>
+<h2 id="LinkedList的特有方法">LinkedList的特有方法</h2>
+<p>获取、删除、添加</p>
 <ol>
-<li>CPU主频：是计算机的振荡器输出的脉冲序列的频率，是计算机中一切操作所依据的时间基准信号，其高低决定了计算机工做速度的快慢。</li>
-<li>时钟频率：是主频脉冲经分频后所形成的时钟脉冲序列的频率，两个相邻时钟脉冲之间的间隔时间是一个时钟周期时间，也称为节拍。</li>
+<li><code>public E getFirst()</code></li>
+<li><code>public E getLast()</code></li>
+<li><code>public E removeFirst()</code></li>
+<li><code>public E removeLast()</code></li>
+<li><code>public void addFirst(E e)</code></li>
+<li><code>public void addLast(E e)</code></li>
 </ol>
-<h2 id="数据通路宽度与数据传输率">数据通路宽度与数据传输率</h2>
+<h2 id="补充与总结">补充与总结</h2>
 <ol>
-<li>数据通路宽度：指数据总线一次能并行传送的数据位数</li>
-<li>数据传输率：指数据总线每秒传送的数据量，也称为数据总线的带宽</li>
-<li>公式：总线带宽 = 总线数据通路宽度 × 总线时钟频率 ÷ 8 （BPS）</li>
+<li>
+<p>List,Set都是继承自Collection接口，Map则不是。</p>
+</li>
+<li>
+<p>List特点：元素有放入顺序，元素可重复 ，Set特点：元素无放入顺序，元素不可重复，重复元素会覆盖掉。</p>
+<p>注意：元素虽然无放入顺序，但是元素在set中的位置是有该元素的HashCode决定的，其位置其实是固定的，加入Set 的Object必须定义equals()方法 。另外list支持for循环，也就是通过下标来遍历，也可以用迭代器，但是set只能用迭代，因为他无序，无法用下标来取得想要的值。</p>
+</li>
+<li>
+<p>Set和List对比：<br>
+Set：检索元素效率低下，删除和插入效率高，插入和删除不会引起元素位置改变。<br>
+List：和数组类似，List可以动态增长，查找元素效率高，插入删除元素效率低，因为会引起其他元素位置改变。</p>
+</li>
+<li>
+<p>ArrayList与LinkedList的区别和适用场景</p>
+<p>Arraylist：优点：ArrayList是实现了基于动态数组的数据结构,因为地址连续，一旦数据存储好了，查询操作效率会比较高  （在内存里是连着放的）。缺点：因为地址连续， ArrayList要移动数据,所以插入和删除操作效率比较低。</p>
+<p>LinkedList：优点：LinkedList基于链表的数据结构,地址是任意的，所以在开辟内存空间的时候不需要等一个连续的地址，对于新增和删除操作add和remove，LinedList比较占优势。LinkedList 适用于要头尾操作或插入指定位置的场景。缺点：因为LinkedList要移动指针,所以查询操作性能比较低。</p>
+<p>适用场景分析：</p>
+<p>当需要对数据进行对此访问的情况下选用ArrayList，当需要对数据进行多次增加删除修改时采用LinkedList。</p>
+</li>
+<li>
+<p>TreeSet 是二叉树实现的，Treeset中的数据是自动排好序的，不允许放入null值，HashSet 是哈希表实现的,HashSet中的数据是无序的，可以放入null，但只能放入一个null，两者中的值都不能重复，HashSet要求放入的对象必须实现HashCode()方法，放入的对象，是以hashcode码作为标识的，而具有相同内容的String对象，hashcode是一样，所以放入的内容不能重复。但是同一个类的对象可以放入不同的实例。</p>
+<p>适用场景分析:</p>
+<p>HashSet是基于Hash算法实现的，其性能通常都优于TreeSet。为快速查找而设计的Set，我们通常都应该使用HashSet，在我们需要排序的功能时，我们才使用TreeSet。</p>
+</li>
 </ol>
-<h2 id="存储容量">存储容量</h2>
+<h1>Map接口</h1>
+<h2 id="Map集合中常用方法">Map集合中常用方法</h2>
 <ol>
-<li>主存容量：存储单元个数 × 位数，表示为：字数×字长（按字编址）或字节数（按字节编址）</li>
-<li>外存容量：表示为字节数，与地址码位数无关</li>
+<li><code>V get(Object key)</code>：返回 Map 集合中指定键对象所对应的值。V 表示值的数据类型</li>
+<li><code>V put(K key, V value)</code>：向 Map 集合中添加键-值对，返回 key 以前对应的 value，如果没有， 则返回 null</li>
+<li><code>V remove(Object key)</code>：从 Map 集合中删除 key 对应的键-值对，返回 key 对应的 value，如果没有，则返回null</li>
+<li><code>Set entrySet()</code>：返回 Map 集合中所有键-值对的 Set 集合，此 Set 集合中元素的数据类型为 Map.Entry</li>
+<li><code>Set keySet()</code>：返回 Map 集合中所有键对象的 Set 集合</li>
+<li><code>void clear()</code>：移除此集合中的所有元素</li>
+<li><code>int size()</code>：返回此集合中的元素个数</li>
+<li><code>boolean isEmpty()</code>：如果此集合不包含元素，则返回 true</li>
+<li><code>boolean containsKey(Object key)</code>：查询集合中是否包含指定key</li>
+<li><code>boolean containsValue(Object value)</code>：查询集合中是否包含指定value</li>
+</ol>
+<h2 id="补充与总结-2">补充与总结</h2>
+<ol>
+<li>
+<p>HashMap和HashTable：HashMap去掉了HashTable的contains方法，但是加上了containsValue()和containsKey()方法。HashTable同步的，而HashMap是非同步的，效率上比HashTable要高。HashMap允许空键值，而HashTable不允许。</p>
+</li>
+<li>
+<p>HashMap：适用于Map中插入、删除和定位元素。<br>
+Treemap：适用于按自然顺序或自定义顺序遍历键(key)。</p>
+</li>
 </ol>
 
       
@@ -322,13 +385,13 @@
   
     
     <div class="copyright">
-        <p><span>本文标题:</span><a href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/">计算机组成原理——概论</a></p>
+        <p><span>本文标题:</span><a href="/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/">Java常用语法汇总（二）</a></p>
         <p><span>文章作者:</span><a href="/" title="回到主页">MrKong</a></p>
-        <p><span>发布时间:</span>2022-09-10, 00:00:00</p>
-        <p><span>最后更新:</span>2022-10-05, 16:08:00</p>
+        <p><span>发布时间:</span>2022-10-28, 09:59:12</p>
+        <p><span>最后更新:</span>2022-10-28, 11:33:39</p>
         <p>
-            <span>原始链接:</span><a class="post-url" href="/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/" title="计算机组成原理——概论">http://example.com/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/</a>
-            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/09/10/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94%E6%A6%82%E8%AE%BA/　　作者: MrKong" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
+            <span>原始链接:</span><a class="post-url" href="/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/" title="Java常用语法汇总（二）">http://example.com/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/</a>
+            <span class="copy-path" data-clipboard-text="原文: http://example.com/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/　　作者: MrKong" title="点击复制文章链接"><i class="fa fa-clipboard"></i></span>
             <script> var clipboard = new Clipboard('.copy-path'); </script>
         </p>
         <p>
@@ -341,15 +404,15 @@
     <nav id="article-nav">
         
             <div id="article-nav-newer" class="article-nav-title">
-                <a href="/2022/09/12/Java%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/">
-                    Java常用语法汇总（一）
+                <a href="/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/">
+                    计组期中复习
                 </a>
             </div>
         
         
             <div id="article-nav-older" class="article-nav-title">
-                <a href="/2022/09/09/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/">
-                    Markdown基本语法与hexo常用命令
+                <a href="/2022/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94CPU%E5%AD%90%E7%B3%BB%E7%BB%9F/">
+                    计算机组成原理——CPU子系统
                 </a>
             </div>
         
@@ -361,7 +424,7 @@
     <div id="toc" class="toc-article">
         <strong class="toc-title">文章目录</strong>
         
-            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">计算机系统的基本组成与特点</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">计算机系统的硬件组成</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%BB%E8%A6%81%E7%BB%84%E6%88%90%E9%83%A8%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">主要组成部件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A1%AC%E4%BB%B6%E7%B3%BB%E7%BB%9F%E7%BB%93%E6%9E%84"><span class="toc-number">2.2.</span> <span class="toc-text">硬件系统结构</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">计算机系统的性能指标</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9F%BA%E6%9C%AC%E5%AD%97%E9%95%BF"><span class="toc-number">3.1.</span> <span class="toc-text">基本字长</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%90%E7%AE%97%E9%80%9F%E5%BA%A6"><span class="toc-number">3.2.</span> <span class="toc-text">运算速度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%95%B0%E6%8D%AE%E9%80%9A%E8%B7%AF%E5%AE%BD%E5%BA%A6%E4%B8%8E%E6%95%B0%E6%8D%AE%E4%BC%A0%E8%BE%93%E7%8E%87"><span class="toc-number">3.3.</span> <span class="toc-text">数据通路宽度与数据传输率</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AD%98%E5%82%A8%E5%AE%B9%E9%87%8F"><span class="toc-number">3.4.</span> <span class="toc-text">存储容量</span></a></li></ol></li></ol>
+            <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">1.</span> <span class="toc-text">概述</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">2.</span> <span class="toc-text">Collection接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Collection%E9%9B%86%E5%90%88%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">2.1.</span> <span class="toc-text">Collection集合中常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#List%E9%9B%86%E5%90%88%E7%9A%84%E7%89%B9%E6%9C%89%E6%96%B9%E6%B3%95"><span class="toc-number">2.2.</span> <span class="toc-text">List集合的特有方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#LinkedList%E7%9A%84%E7%89%B9%E6%9C%89%E6%96%B9%E6%B3%95"><span class="toc-number">2.3.</span> <span class="toc-text">LinkedList的特有方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E4%B8%8E%E6%80%BB%E7%BB%93"><span class="toc-number">2.4.</span> <span class="toc-text">补充与总结</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">3.</span> <span class="toc-text">Map接口</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Map%E9%9B%86%E5%90%88%E4%B8%AD%E5%B8%B8%E7%94%A8%E6%96%B9%E6%B3%95"><span class="toc-number">3.1.</span> <span class="toc-text">Map集合中常用方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%A1%A5%E5%85%85%E4%B8%8E%E6%80%BB%E7%BB%93-2"><span class="toc-number">3.2.</span> <span class="toc-text">补充与总结</span></a></li></ol></li></ol>
         
     </div>
     <style>
@@ -397,7 +460,7 @@
         </div>
         <script>
             window._bd_share_config={
-                "common":{"bdSnsKey":{},"bdText":"计算机组成原理——概论　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
+                "common":{"bdSnsKey":{},"bdText":"Java常用语法汇总（二）　| 　","bdMini":"2","bdMiniList":false,"bdPic":"","bdStyle":"0","bdSize":"24"},"share":{}};with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?v=89860593.js?cdnversion='+~(-new Date()/36e5)];
         </script>
     
 
@@ -417,7 +480,7 @@
 
     <div class="scroll" id="post-nav-button">
         
-            <a href="/2022/09/12/Java%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB/" title="上一篇: Java常用语法汇总（一）">
+            <a href="/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/" title="上一篇: 计组期中复习">
                 <i class="fa fa-angle-left"></i>
             </a>
         
@@ -425,7 +488,7 @@
         <a title="文章列表"><i class="fa fa-bars"></i><i class="fa fa-times"></i></a>
 
         
-            <a href="/2022/09/09/%E5%8D%9A%E5%AE%A2%E6%A8%A1%E6%9D%BF/" title="下一篇: Markdown基本语法与hexo常用命令">
+            <a href="/2022/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94CPU%E5%AD%90%E7%B3%BB%E7%BB%9F/" title="下一篇: 计算机组成原理——CPU子系统">
                 <i class="fa fa-angle-right"></i>
             </a>
         

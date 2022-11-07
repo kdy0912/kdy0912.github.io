@@ -4,6 +4,58 @@
   
     
     <entry>
+      <title>计组期中复习</title>
+      <link href="/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/"/>
+      <url>/2022/11/06/%E8%AE%A1%E7%BB%84%E6%9C%9F%E4%B8%AD%E5%A4%8D%E4%B9%A0/</url>
+      
+        <content type="html"><![CDATA[<h1>数值信息的表示方法</h1><ol><li><p>原码：符号位为0正1负+二进制数</p><p>原码，反码，补码的正数相同</p><p>负数反码：符号位+二进制数按位取反</p><p>负数补码：符号位+二进制数按位取反加1</p><p>移码为补码符号位取反</p></li><li><p>补码和移码都是平移得到的，但是前者是2的n+1次方，后者是2的n次方（字长为n+1位）</p></li><li><p>短浮点数：31（数符） | 30 - 23 （<strong>8位阶码，加127</strong>）|22 - 0（尾数，原码表示，省略开头的1）|</p></li><li><p>长浮点数：63（数符） | 62 - 52 （<strong>11位阶码，加1023</strong>）|51 - 0（尾数，原码表示，省略开头的1）|</p></li></ol><h1>指令系统</h1><ol><li><p>1K = 2的10次方，1M = 2的20次方，8位(bit) = 1字节(byte)</p></li><li><p>一地址指令：<strong>隐含约定目的地的双操作数指令</strong>或者目的操作数的单操作数指令。</p></li><li><p>零地址指令可以是双操作数指令。</p></li><li><p>减少指令中<strong>地址数</strong>的方法是采用隐地址，寄存器间接寻址的优点：执行速度快，减少指令中<strong>地址字段的位数</strong></p></li><li><p>独立编址与统一编址</p><p>独立编址：<strong>将外设的寄存器看成一个独立的地址空间。<strong>I/O地址与存储地（内存）址分开独立编址，I/O端口地址不占用存储空间的地址范围。这样，在系统中就存在了另一种与存储地址无关的I/O地址。此时，需要使用</strong>专用的CPU指令</strong>来访问某种特定外设。</p><p>统一编址：**寄存器参与内存统一编址。**外设接口中的I/O寄存器(即I/O端口)与主存（内存）单元一样看待，每个端口占用一个存储单元的地址（总线地址），将主存的一部分划分出来用作I/O的地址空间。（理解：把外设的寄存器当做是一个内存地址，从而以类似访问内存相同的方式来操作外设）。</p><p>区别：独立编址与统一编址的区别：独立编址访问外设有专门的I/O指令（比如：x86的in/out等指令），也就是独立编址会存在I/O空间的概念。而统一编址对外设的访问和都内存的访问指令可以是一样的，这类指令又被成为隐式I/O指令。</p></li><li><p>为了实现输入输出操作,指令中<strong>对单独编址方式,可以指明端口地址；对统一编址方式,可以指明寄存器的总线地址</strong>。</p></li><li><p>采用隐式I/O指令，是指用<strong>传送指令</strong>实现I/O操作。</p></li><li><p>若主存储器和外设独立编址，则CPU根据地址码区分访问的是存储器还是I/O接口。( × )</p></li></ol><h1>CPU子系统</h1><ol><li><p>控制信号的产生方式：组合逻辑控制方式与微程序控制</p><p><strong>组合逻辑控制方式</strong></p><p>用<strong>组合逻辑电路</strong>形成逻辑或由<strong>微命令发生器</strong>发出所需微命令</p><p>优点：<strong>产生微命令快</strong>，执行效率高</p><p>缺点：设计不规整，设计效率低，不易修改。</p><p>应用：高速、小规模计算机</p><p><strong>微程序控制</strong></p><p>若干微命令→一条微指令</p><p>微命令：构成控制信号序列的最小单位，又称微信号，指那些<strong>直接作用于部件或控制门电路</strong>的命令。</p><p>若干微指令→一段微程序→一条机器指令</p><p>微程序控制：将控制器所需的微命令，以代码（微码）形式编成微指令，把微程序存入一个ROM构成的<strong>控制存储器</strong>（在CPU）中。</p><p>优点：设计效率高，易修改</p><p>缺点：<strong>速度慢</strong>，执行效率低</p><p>应用：速度不高，功能复杂的机器（系列机）</p></li><li><p>时序控制系统：</p><p>同步控制：不存在控制信号的交互，时序关系简单，划分规整（如将时序信号划分为<strong>工作周期、时钟周期（节拍）、脉冲</strong>等三级时序），控制不复杂，控制部件在结构上易于集中、设计方便，缺点是在时间的安排上可能不合理、利用不经济。</p><p>异步控制：无固定周期，数据传输采用异步应答，存在信息交互，时间紧凑合理，缺点是控制起来比较复杂。CPU内部或设备内部很少采用异步控制方式。</p><p>拓展同步控制：根据实际时间分配时钟周期数，时钟周期长度不变。</p></li><li><p>汇编语言程序员可见的寄存器：PC,SP</p></li><li><p>加法器运算速度与<strong>全加器</strong>与<strong>进位传递速度</strong>都有关系</p></li><li><p>并行加法器的进位链都是并行进位链。 （×）</p></li><li><p>采用分组进位的并行加法器，则组内与组间进位都是并行的。  （×）</p></li><li><p>为了读写存储单元，必须要地址使能信号EMAR有效。  （√）</p></li><li><p>例题：</p><p>某CPU组成：用SN74181构成的ALU一片，选择器A、B，移位器；通用寄存器R0～R3，暂存器C、D；指令寄存器IR，程序计数器PC，程序状态字寄存器PSW，堆栈指针SP；地址寄存器MAR，数据缓冲寄存器MDR；CPU内单向数据总线一组；控制器等部件。</p><p>问题：</p><p>1、画出一种CPU数据通路框图(寄存器级)。</p><p>2、请补充完善加法指令ADD (R2)+，X(R1)中的指令流程步骤（采用寄存器传送级语句，如R1→R0）并在下列空白处填上适当内容；</p><p>FT:  M→IR ，PC+1→PC</p><p>ST:  PC→MAR</p><p>​    M→MDR→C      (1)C中存放的信息是：</p><p>​    PC+1→PC</p><p>​    C+R1→MAR</p><p>​    M→MDR→C      (2)C中存放的信息是：</p><p>DT:  (3)</p><p>​     (4)</p><p>​     (5)</p><p>ET:  C+D-&gt;MDR</p><p>​     MDR-&gt;M</p><p>PC-&gt;MAR</p><p>（6）考虑整体优化，在源周期ST中，第2、3节拍的顺序是否可以交换？并说明原因。</p><p>(7)  ET周期的前两步能否安排在一个节拍？为什么？</p><p>3、请安排ET周期中第一个节拍C+D→MDR的微命令序列（不考虑时序切换）。</p><p>1、略</p><p>2、</p><p>(1)C中存放的信息是：形式地址 （或位移量）</p><p>​    (2)C中存放的信息是： 源操作数</p><p>​    (3)  R2-&gt; MAR</p><p>​    (4)  M-&gt;MDR-&gt;D</p><p>​    (5)  R2+1-&gt;R2</p><p>​    <strong>(6) 不能。从简化整体设计角度，应该尽量使不同寻址方式下<em>ST1的操作相同</em>。</strong></p><p>​    <strong>(7) 不能。因为运算结果经内总线到MDR采用<em>同步打入</em>方式，需要一个时钟周期，从MDR到M需要另外一个时钟周期。</strong></p><p>3、</p><p>答：C→A,D→B,A+B, DM, CPMDR</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> 计算机组成原理 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
+      <title>Java常用语法汇总（二）</title>
+      <link href="/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/"/>
+      <url>/2022/10/28/JAVA%E5%B8%B8%E7%94%A8%E8%AF%AD%E6%B3%95%E6%B1%87%E6%80%BB%EF%BC%88%E4%BA%8C%EF%BC%89/</url>
+      
+        <content type="html"><![CDATA[<h1>概述</h1><ol><li><p>List , Set, Map都是接口，前两个继承至Collection接口，Map为独立接口</p></li><li><p>Set下有HashSet，LinkedHashSet，TreeSet</p></li><li><p>List下有ArrayList，Vector，LinkedList</p></li><li><p>Map下有Hashtable，LinkedHashMap，HashMap，TreeMap</p></li><li><p>Collection接口下还有个Queue接口，有PriorityQueue类</p></li></ol><p><img src="https://s2.loli.net/2022/10/28/wfZ5a9T2Hzu6NQq.jpg" alt="集合.jpg"></p><p><img src="https://s2.loli.net/2022/10/28/bvhLcXGpo4NqiI6.jpg" alt="Map.jpg"></p><h1>Collection接口</h1><h2 id="Collection集合中常用方法">Collection集合中常用方法</h2><ol><li><code>boolean add(E e)</code>：集合末尾添加元素</li><li><code>boolean remove(Object o)</code>：从此集合中移除指定元素，如果存在的话则返回true</li><li><code>void clear()</code>：移除此集合中的所有元素</li><li><code>int size()</code>：返回此集合中的元素个数</li><li><code>boolean isEmpty()</code>：如果此集合不包含元素，则返回 true</li><li><code>Object[] toArray()</code>：返回包含此集合中所有元素的数组</li><li><code>boolean contains(Object o)</code>：如果此集合包含指定的元素，则返回 true</li><li><code>Iterator&lt;E&gt; iterator()</code>：返回在此集合的元素上进行迭代的迭代器</li></ol><h2 id="List集合的特有方法">List集合的特有方法</h2><ol><li><code>void add(int index, E element)</code>：在指定位置添加元素</li><li><code>E remove(int index)</code>：在指定位置删除元素</li><li><code>int indexOf(Object o)</code>：返回指定元素第一次出现的索引（同理还有LastIndexOf）</li><li><code>E get(int index)</code>：获取指定位置的元素</li><li><code>E set(int index,E element)</code>：替换指定位置的元素</li><li><code>List&lt;E&gt; subList(int fromIndex, int toIndex)</code>：截取集合</li><li><code>ListIterator&lt;E&gt; listIterator()</code>：集合迭代器</li></ol><h2 id="LinkedList的特有方法">LinkedList的特有方法</h2><p>获取、删除、添加</p><ol><li><code>public E getFirst()</code></li><li><code>public E getLast()</code></li><li><code>public E removeFirst()</code></li><li><code>public E removeLast()</code></li><li><code>public void addFirst(E e)</code></li><li><code>public void addLast(E e)</code></li></ol><h2 id="补充与总结">补充与总结</h2><ol><li><p>List,Set都是继承自Collection接口，Map则不是。</p></li><li><p>List特点：元素有放入顺序，元素可重复 ，Set特点：元素无放入顺序，元素不可重复，重复元素会覆盖掉。</p><p>注意：元素虽然无放入顺序，但是元素在set中的位置是有该元素的HashCode决定的，其位置其实是固定的，加入Set 的Object必须定义equals()方法 。另外list支持for循环，也就是通过下标来遍历，也可以用迭代器，但是set只能用迭代，因为他无序，无法用下标来取得想要的值。</p></li><li><p>Set和List对比：<br>Set：检索元素效率低下，删除和插入效率高，插入和删除不会引起元素位置改变。<br>List：和数组类似，List可以动态增长，查找元素效率高，插入删除元素效率低，因为会引起其他元素位置改变。</p></li><li><p>ArrayList与LinkedList的区别和适用场景</p><p>Arraylist：优点：ArrayList是实现了基于动态数组的数据结构,因为地址连续，一旦数据存储好了，查询操作效率会比较高  （在内存里是连着放的）。缺点：因为地址连续， ArrayList要移动数据,所以插入和删除操作效率比较低。</p><p>LinkedList：优点：LinkedList基于链表的数据结构,地址是任意的，所以在开辟内存空间的时候不需要等一个连续的地址，对于新增和删除操作add和remove，LinedList比较占优势。LinkedList 适用于要头尾操作或插入指定位置的场景。缺点：因为LinkedList要移动指针,所以查询操作性能比较低。</p><p>适用场景分析：</p><p>当需要对数据进行对此访问的情况下选用ArrayList，当需要对数据进行多次增加删除修改时采用LinkedList。</p></li><li><p>TreeSet 是二叉树实现的，Treeset中的数据是自动排好序的，不允许放入null值，HashSet 是哈希表实现的,HashSet中的数据是无序的，可以放入null，但只能放入一个null，两者中的值都不能重复，HashSet要求放入的对象必须实现HashCode()方法，放入的对象，是以hashcode码作为标识的，而具有相同内容的String对象，hashcode是一样，所以放入的内容不能重复。但是同一个类的对象可以放入不同的实例。</p><p>适用场景分析:</p><p>HashSet是基于Hash算法实现的，其性能通常都优于TreeSet。为快速查找而设计的Set，我们通常都应该使用HashSet，在我们需要排序的功能时，我们才使用TreeSet。</p></li></ol><h1>Map接口</h1><h2 id="Map集合中常用方法">Map集合中常用方法</h2><ol><li><code>V get(Object key)</code>：返回 Map 集合中指定键对象所对应的值。V 表示值的数据类型</li><li><code>V put(K key, V value)</code>：向 Map 集合中添加键-值对，返回 key 以前对应的 value，如果没有， 则返回 null</li><li><code>V remove(Object key)</code>：从 Map 集合中删除 key 对应的键-值对，返回 key 对应的 value，如果没有，则返回null</li><li><code>Set entrySet()</code>：返回 Map 集合中所有键-值对的 Set 集合，此 Set 集合中元素的数据类型为 Map.Entry</li><li><code>Set keySet()</code>：返回 Map 集合中所有键对象的 Set 集合</li><li><code>void clear()</code>：移除此集合中的所有元素</li><li><code>int size()</code>：返回此集合中的元素个数</li><li><code>boolean isEmpty()</code>：如果此集合不包含元素，则返回 true</li><li><code>boolean containsKey(Object key)</code>：查询集合中是否包含指定key</li><li><code>boolean containsValue(Object value)</code>：查询集合中是否包含指定value</li></ol><h2 id="补充与总结-2">补充与总结</h2><ol><li><p>HashMap和HashTable：HashMap去掉了HashTable的contains方法，但是加上了containsValue()和containsKey()方法。HashTable同步的，而HashMap是非同步的，效率上比HashTable要高。HashMap允许空键值，而HashTable不允许。</p></li><li><p>HashMap：适用于Map中插入、删除和定位元素。<br>Treemap：适用于按自然顺序或自定义顺序遍历键(key)。</p></li></ol>]]></content>
+      
+      
+      <categories>
+          
+          <category> 专业知识 </category>
+          
+      </categories>
+      
+      
+        <tags>
+            
+            <tag> Java </tag>
+            
+            <tag> 数据结构与算法 </tag>
+            
+        </tags>
+      
+    </entry>
+    
+    
+    
+    <entry>
       <title>计算机组成原理——CPU子系统</title>
       <link href="/2022/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94CPU%E5%AD%90%E7%B3%BB%E7%BB%9F/"/>
       <url>/2022/10/17/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BB%84%E6%88%90%E5%8E%9F%E7%90%86%E2%80%94%E2%80%94CPU%E5%AD%90%E7%B3%BB%E7%BB%9F/</url>
